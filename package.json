@@ -1,27 +1,28 @@
 {
-  "name": "jikanjs",
-  "version": "0.7.0",
-  "description": "A small Wrapper for the unofficial MAL API jikan.me",
+  "name": "@mateoaranda/jikanjs",
+  "version": "1.0.0",
+  "description": "A small Wrapper for the unofficial MAL API Jikan",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha",
-    "snyk-test": "./node_modules/.bin/snyk test",
-    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha",
-    "dev": "nodemon server.js"
+    "test": "exit 0"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:zuritor/jikanjs.git"
+    "url": "git+https://github.com/mateoaranda/jikanjs.git"
   },
+  "keywords": [
+    "Anime",
+    "Manga",
+    "API",
+    "Wrapper",
+    "MAL",
+    "myanimelist",
+    "jikan"
+  ],
   "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "cross-fetch": "^3.0.0"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mateoaranda/jikanjs/issues"
   },
-  "devDependencies": {
-    "chai": "^4.1.2",
-    "istanbul": "^0.4.5",
-    "mocha": "^5.1.1",
-    "snyk": "^1.119.0"
-  }
+  "homepage": "https://github.com/mateoaranda/jikanjs#readme"
 }
