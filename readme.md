@@ -1,4 +1,4 @@
-Jikanjs
+JikanJS 
 =======
 this is a v4 version of [zuritor's jikanjs](https://github.com/zuritor/jikanjs)
 
@@ -58,7 +58,7 @@ jikanjs.loadSeason(year, season [, page])
 jikanjs.loadSeasonArchive()
 jikanjs.loadCurrentSeason([page])
 jikanjs.loadUpcomingSeason([page])
-jikanjs.loadTop(type [, page])
+jikanjs.loadTop(type [, page [, subtype [, filter]]])
 jikanjs.search(type, query [, limit [, parameters]])
 jikanjs.raw(urlParts [, queryParameter])
 ```
@@ -210,18 +210,25 @@ await jikanjs.loadCurrentSeason(); // First page of the current season's animes
 await jikanjs.loadUpcomingSeason(3); // Third page of next season's animes
 ```
 
-### loadTop(type [, page])
+### loadTop(type [, page [, subtype [, filter]]])
 `type`: anime, manga, people, characters, review  
-`page`: Page Number, default: 1 (25 items per page)
+`page`: Page Number, default: 1 (25 items per page)  
+`subtype`:   
+⠀⠀`anime`: tv, movie, ova, special, ona, music  
+⠀⠀`manga`: manga, novel, lightnovel, oneshot, doujin, manhwa, manhua  
+`filter`:  
+⠀⠀`anime`: airing, upcoming, bypopularity, favorite  
+⠀⠀`manga`: publishing, upcoming, bypopularity, favorite  
 
 ```javascript
 await jikanjs.loadTop('anime'); // Top 25 animes
+await jikanjs.loadTop('anime', 1, 'movie'); // First page of top anime movies
 ```
 
 ### search(type, query [, limit [, parameters]])
-`type`: anime, manga, people, characters, clubs
-`query`: search term
-`limit`: results limit number
+`type`: anime, manga, people, characters, clubs  
+`query`: search term  
+`limit`: results limit number  
 `parameters`: extra query parameters, see docs for more info on this
 
 ```javascript
