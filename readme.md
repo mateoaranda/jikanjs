@@ -23,6 +23,10 @@ this is a v4 version of [zuritor's jikanjs](https://github.com/zuritor/jikanjs)
 * [Users](https://docs.api.jikan.moe/#tag/users)
 * [Top](https://docs.api.jikan.moe/#tag/top)
 
+## wrapped MAL Features
+* [User Anime list](https://myanimelist.net/apiconfig/references/api/v2#operation/users_user_id_animelist_get)
+* [User Manga list](https://myanimelist.net/apiconfig/references/api/v2#operation/users_user_id_mangalist_get)
+
 ## Usage
 
 ```javascript
@@ -96,15 +100,13 @@ await jikanjs.loadClub(73113); // Club information
 await jikanjs.loadClub(73113, 'members', 10); // 10th Page of this club members
 ```
 
-### loadGenres(type [, page [, filter [, limit]]])
+### loadGenres(type [, filter])
 `type`: either `anime` or `manga`  
-`page`: Page number, default: 1  
 `filter`: genres, explicit_genres, themes, demographics  
-`limit`: Results limit
 
 ```javascript
 await jikanjs.loadGenres('anime'); // All anime genres
-await jikanjs.loadGenres('manga', 1, 'explicit_genres', 5); // First 5 manga explicit genres
+await jikanjs.loadGenres('manga', 'explicit_genres'); // Manga explicit genres
 ```
 
 ### loadMagazines([page])
@@ -165,7 +167,9 @@ await jikanjs.loadReviews('manga'); // First page of recent manga reviews
 
 ### loadSchedule(day [, page])
 `day`: monday, tuesday, wednesday, thursday, friday, saturday, sunday, other, unknown  
-`page`: Page Number, default: 1
+`page`: Page Number, default: 1  
+`kids`: Filter entries with the Kids Genre, Default: false  
+`sfw`: Filter entries with the Hentai Genre, Default: false
 
 ```javascript
 await jikanjs.loadSchedule('monday'); // Monday's anime schedule
@@ -181,6 +185,23 @@ await jikanjs.loadUser('pepito'); // Profile information
 await jikanjs.loadUser('pepito', 'friends', 6); // 6th page of pepito's friends
 ```
 
+### loadAnimelist(username [, limit [, offset]])
+`username`: User's Username  
+`limit`: Amount of elements to receive, Default: 1000  
+`offset`: Offset, Default: 0
+
+```javascript
+await jikanjs.loadAnimelist('pepito'); // pepito's animelist
+```
+
+### loadMangalist(username [, limit [, offset]])
+`username`: User's Username  
+`limit`: Amount of elements to receive, Default: 1000  
+`offset`: Offset, Default: 0
+
+```javascript
+await jikanjs.loadMangalist('pepito'); /// pepito's mangalist
+```
 ### loadSeason(year, season [, page])
 `year`: Season Year (1970-Now)  
 `season`: winter, spring, summer, fall  
