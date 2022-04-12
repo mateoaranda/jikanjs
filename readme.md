@@ -58,13 +58,15 @@ jikanjs.loadRecommendations(type [, page])
 jikanjs.loadReviews(type [, page])
 jikanjs.loadSchedule(day [, page])
 jikanjs.loadUser(username [, request [, page]])
+jikanjs.loadAnimelist(username [, limit [, offset]])
+jikanjs.loadMangalist(username [, limit [, offset]])
 jikanjs.loadSeason(year, season [, page])
 jikanjs.loadSeasonArchive()
 jikanjs.loadCurrentSeason([page])
 jikanjs.loadUpcomingSeason([page])
 jikanjs.loadTop(type [, page [, subtype [, filter]]])
 jikanjs.search(type, query [, limit [, parameters]])
-jikanjs.raw(urlParts [, queryParameter])
+jikanjs.raw(urlParts [, queryParameters [, mal]])
 ```
 ## Examples
 
@@ -232,7 +234,7 @@ await jikanjs.loadUpcomingSeason(3); // Third page of next season's animes
 ```
 
 ### loadTop(type [, page [, subtype [, filter]]])
-`type`: anime, manga, people, characters, review  
+`type`: anime, manga, people, characters, reviews  
 `page`: Page Number, default: 1 (25 items per page)  
 `subtype`:   
 ⠀⠀`anime`: tv, movie, ova, special, ona, music  
@@ -256,9 +258,10 @@ await jikanjs.loadTop('anime', 1, 'movie'); // First page of top anime movies
 await jikanjs.search('characters', 'Emilia', 1); // Search for a character named "Emilia"
 ``` 
 
-### (EXTRA) raw(urlParts [, queryParameters])
+### (EXTRA) raw(urlParts [, queryParameters [, mal]])
 `urlParts`: Array with api endpoint path, e.g. [anime, 1] to load the anime with the id of 1  
 `queryParameters`: query parameters, needs to be a key value pair like { page: 1 }  
+`mal`: Request to MAL API? Default: false
 
 ```javascript
 await jikanjs.raw(['anime', 1]); // Same as loadAnime(1);
