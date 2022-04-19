@@ -1,3 +1,6 @@
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/mateoaranda/jikanjs/Node.js%20CI) ![Known Vulnerabilities](https://snyk.io/test/github/mateoaranda/jikanjs/badge.svg) 
+
+
 JikanJS 
 =======
 this is a v4 version of [zuritor's jikanjs](https://github.com/zuritor/jikanjs)
