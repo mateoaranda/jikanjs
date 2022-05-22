@@ -59,7 +59,7 @@ jikanjs.loadProducers([page])
 jikanjs.loadRandom(type)
 jikanjs.loadRecommendations(type [, page])
 jikanjs.loadReviews(type [, page])
-jikanjs.loadSchedule(day [, page])
+jikanjs.loadSchedule(day [, page [, limit]])
 jikanjs.loadUser(username [, request [, page]])
 jikanjs.loadAnimelist(username [, limit [, offset]])
 jikanjs.loadMangalist(username [, limit [, offset]])
@@ -75,7 +75,7 @@ jikanjs.raw(urlParts [, queryParameters [, mal]])
 
 ### loadAnime(id [, request [, parameters]])
 `id`: Anime ID  
-`request`: characters, staff, episodes, news, forum, videos, pictures, statistics, moreinfo, recommendations, userupdates, reviews, relations, themes, external  
+`request`: full, characters, staff, episodes, news, forum, videos, pictures, statistics, moreinfo, recommendations, userupdates, reviews, relations, themes, external  
 `parameters`: query parameters, check the docs for more info
 
 ```javascript
@@ -88,7 +88,7 @@ await jikanjs.loadAnime(31240, 'forum', { filter: 'episode' });
 
 ### loadCharacter(id [, request])
 `id`: Character ID  
-`request`: anime, manga, voices, pictures
+`request`: full, anime, manga, voices, pictures
 
 ```javascript
 await jikanjs.loadCharacter(118737); // Character information
@@ -123,7 +123,7 @@ await jikanjs.loadMagazines(); // Magazines collection
 
 ### loadManga(id [, request [, page]])
 `id`: Manga ID  
-`request`: characters, news, forum, pictures, statistics, moreinfo, recommendations, userupdates, reviews, relations, external  
+`request`: full, characters, news, forum, pictures, statistics, moreinfo, recommendations, userupdates, reviews, relations, external  
 `page`: Page Number, available on `news` `userupdates` `reviews` requests
 
 ```javascript
@@ -170,9 +170,10 @@ await jikanjs.loadRecommendations('anime'); // First page of recent anime recomm
 await jikanjs.loadReviews('manga'); // First page of recent manga reviews
 ```
 
-### loadSchedule(day [, page])
+### loadSchedule(day [, page [, limit]])
 `day`: monday, tuesday, wednesday, thursday, friday, saturday, sunday, other, unknown  
 `page`: Page Number, default: 1  
+`limit`: Result limit number  
 `kids`: Filter entries with the Kids Genre, Default: false  
 `sfw`: Filter entries with the Hentai Genre, Default: false
 
@@ -182,7 +183,7 @@ await jikanjs.loadSchedule('monday'); // Monday's anime schedule
 
 ### loadUser(username [, request [, page]])
 `username`: User's username  
-`request`: statistics, favorites, userupdates, about, history, friends, reviews, recommendations, clubs  
+`request`: full, statistics, favorites, userupdates, about, history, friends, reviews, recommendations, clubs  
 `page`: Page number, available on `friends` `reviews` `recommendations` `clubs` requests
 
 ```javascript
