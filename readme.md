@@ -1,4 +1,4 @@
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/mateoaranda/jikanjs/Node.js%20CI) ![Known Vulnerabilities](https://snyk.io/test/github/mateoaranda/jikanjs/badge.svg) 
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/mateoaranda/jikanjs/.github/workflows/node.js.yml?branch=master) ![Known Vulnerabilities](https://snyk.io/test/github/mateoaranda/jikanjs/badge.svg) 
 
 
 JikanJS 
