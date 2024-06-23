@@ -37,8 +37,8 @@ describe('JikanJS', function(){
         it('Extra request', async function(){
             const { data } = await jikanjs.loadCharacter(118737, 'voices');
             assert.isNotEmpty(data);
-            assert.equal(data[3].person.name, 'Takahashi, Rie', 'person name should be Takahashi, Rie');
-            assert.equal(data[3].language, 'Japanese', 'language should be Japanese');    
+            assert.equal(data[0].person.name, 'Takahashi, Rie', 'person name should be Takahashi, Rie');
+            assert.equal(data[0].language, 'Japanese', 'language should be Japanese');    
         });
     });
 
