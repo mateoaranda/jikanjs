@@ -75,7 +75,7 @@ jikanjs.raw(urlParts [, queryParameters [, mal]])
 
 ### loadAnime(id [, request [, parameters]])
 `id`: Anime ID  
-`request`: full, characters, staff, episodes, news, forum, videos, pictures, statistics, moreinfo, recommendations, userupdates, reviews, relations, themes, external  
+`request`: full, characters, staff, episodes, news, forum, videos, videosepisodes, pictures, statistics, moreinfo, recommendations, userupdates, reviews, relations, themes, external  
 `parameters`: query parameters, check the docs for more info
 
 ```javascript
@@ -133,7 +133,7 @@ await jikanjs.loadManga(74697, 'reviews', 1); // First page of reviews
 
 ### loadPerson(id [, request])
 `id`: Person ID  
-`request`: anime, voices, manga, pictures
+`request`: full, anime, voices, manga, pictures
 
 ```javascript
 await jikanjs.loadPerson(34785); // Person information
@@ -164,7 +164,9 @@ await jikanjs.loadRecommendations('anime'); // First page of recent anime recomm
 
 ### loadReviews(type [, page])
 `type`: either `anime` or `manga`  
-`page`: Page Number, default: 1
+`page`: Page Number, default: 1  
+`preliminary`: Receive reviews tagged as preliminary? Default: false  
+`spoiler`: Receive reviews tagged as a spoiler? Default: false
 
 ```javascript
 await jikanjs.loadReviews('manga'); // First page of recent manga reviews
@@ -175,7 +177,8 @@ await jikanjs.loadReviews('manga'); // First page of recent manga reviews
 `page`: Page Number, default: 1  
 `limit`: Result limit number  
 `kids`: Filter entries with the Kids Genre, Default: false  
-`sfw`: Filter entries with the Hentai Genre, Default: false
+`sfw`: Filter entries with the Hentai Genre, Default: false  
+`unapproved`: Include entries which are unapproved, Default: false
 
 ```javascript
 await jikanjs.loadSchedule('monday'); // Monday's anime schedule
@@ -183,7 +186,7 @@ await jikanjs.loadSchedule('monday'); // Monday's anime schedule
 
 ### loadUser(username [, request [, page]])
 `username`: User's username  
-`request`: full, statistics, favorites, userupdates, about, history, friends, reviews, recommendations, clubs  
+`request`: full, statistics, favorites, userupdates, about, history, friends, reviews, recommendations, clubs, external  
 `page`: Page number, available on `friends` `reviews` `recommendations` `clubs` requests
 
 ```javascript
@@ -208,6 +211,7 @@ await jikanjs.loadAnimelist('pepito'); // pepito's animelist
 ```javascript
 await jikanjs.loadMangalist('pepito'); /// pepito's mangalist
 ```
+
 ### loadSeason(year, season [, page])
 `year`: Season Year (1970-Now)  
 `season`: winter, spring, summer, fall  
@@ -241,7 +245,7 @@ await jikanjs.loadUpcomingSeason(3); // Third page of next season's animes
 `type`: anime, manga, people, characters, reviews  
 `page`: Page Number, default: 1 (25 items per page)  
 `subtype`:   
-⠀⠀`anime`: tv, movie, ova, special, ona, music  
+⠀⠀`anime`: tv, movie, ova, special, ona, music, cm, pv, tv_special  
 ⠀⠀`manga`: manga, novel, lightnovel, oneshot, doujin, manhwa, manhua  
 `filter`:  
 ⠀⠀`anime`: airing, upcoming, bypopularity, favorite  
